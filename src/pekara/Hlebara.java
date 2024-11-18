@@ -2,15 +2,19 @@ package pekara;
 import java.util.*;
 
 public class Hlebara {
+	List<Proizvodi> hleb = new ArrayList<>();
+	List<Proizvodi> kifla = new ArrayList<>();
 	
 	public void napravi(int norma) {
 		for(int i =0; i < norma; i++) {
-			List<Proizvodi> hlebovi = new ArrayList<>();
-			List<Proizvodi> kifle = new ArrayList<>();
-
-			hlebovi.add(Proizvodi.HLEB);
-			kifle.add(Proizvodi.KIFLA);
+			hleb.add(Proizvodi.HLEB);
+			kifla.add(Proizvodi.KIFLA);
 		}
+		/*
+		 * System.out.println("napravljeno hlebova: "+ hleb.size());
+		 * System.out.println("Hlebovi u listi:"); for (Proizvodi hleb : hleb) {
+		 * System.out.println(hleb + " - " + hleb.getCena() + " din"); }
+		 */
 	}
 	
 }
