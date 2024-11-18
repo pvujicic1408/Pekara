@@ -30,10 +30,13 @@ import java.util.*;
 
 public class Main {
 	
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
+		
+		Prodavacica prodavacica = new Prodavacica();
 		
 		System.out.println("Dobro jutro! Pocetak smene. Pravljenje prozivoda...");
-
+		
+		prodavacica.napraviProizvode();
 		
 		
 	}
