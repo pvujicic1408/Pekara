@@ -12,4 +12,8 @@ public class Burekara {
 		}
 	}
 	
+	public void isporuci() {
+		
+	}
+	
 }

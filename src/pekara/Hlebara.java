@@ -10,11 +10,10 @@ public class Hlebara {
 			hleb.add(Proizvodi.HLEB);
 			kifla.add(Proizvodi.KIFLA);
 		}
-		/*
-		 * System.out.println("napravljeno hlebova: "+ hleb.size());
-		 * System.out.println("Hlebovi u listi:"); for (Proizvodi hleb : hleb) {
-		 * System.out.println(hleb + " - " + hleb.getCena() + " din"); }
-		 */
+	}
+	
+	public void isporuci() {
+		
 	}
 	
 }

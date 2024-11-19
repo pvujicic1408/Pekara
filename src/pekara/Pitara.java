@@ -12,4 +12,8 @@ public class Pitara {
 		}
 	}
 	
+	public void isporuci() {
+		
+	}
+	
 }
