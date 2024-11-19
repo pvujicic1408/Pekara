@@ -24,18 +24,14 @@ public class Prodavacica {
 		for (int i = 0; i < BROJ_KUPACA; i++) {
 			System.out.println("Dobar dan, kupac broj " + (i+1) + ". Sta zelite da kupite?");
 			
-			List<Integer> indeksiIzabranihProizvoda = new ArrayList<>();
-			
-			for(int j = 0; j < BROJ_PROIZVODA_KOJI_KUPUJE_SVAKI_KUPAC; j++) {
-				indeksiIzabranihProizvoda.add(rand.nextInt(5) + 1);
-			}
-			
 			List<Proizvodi> izabraniProizvodi = new ArrayList<>();
 			
 			for(int j = 0; j < BROJ_PROIZVODA_KOJI_KUPUJE_SVAKI_KUPAC; j++) {
-				Proizvodi izabraniProizvod = Proizvodi.izOpcije(indeksiIzabranihProizvoda.get(j));
+				Proizvodi izabraniProizvod = Proizvodi.izOpcije(rand.nextInt(Proizvodi.values().length));
 				izabraniProizvodi.add(izabraniProizvod);
 			}
+			
+			System.out.println(izabraniProizvodi);
 			
 			zatraziProizvode(izabraniProizvodi);
 		}
