@@ -15,11 +15,12 @@ public class Prodavacica {
 
 	Kupac kupac = new Kupac();
 
-	public void napraviProizvode() {
-		hlebara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD);
-		burekara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD);
-		pitara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD);
-	}
+	/*
+	 * public void napraviProizvode() {
+	 * hlebara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD);
+	 * burekara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD);
+	 * pitara.napravi(DNEVNA_NORMA_ZA_SVAKI_PROIZVOD); }
+	 */
 
 	public void usluzi() {
 		for (int i = 0; i < BROJ_KUPACA; i++) {

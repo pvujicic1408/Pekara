@@ -33,11 +33,14 @@ public class Main {
 	public static void main(String[] args) {
 		//final int brojKupaca = 1000;
 		Random rand = new Random();
+		Pogon pogon = new Pogon();
 		Prodavacica prodavacica = new Prodavacica();
-
+		Kupac kupac = new Kupac();
+		
 		System.out.println("Dobro jutro! Pocetak smene. Pravljenje prozivoda...");
-
-		prodavacica.napraviProizvode();
+		
+		pogon.napravi();
+		prodavacica.usluzi();
 		
 		prodavacica.usluzi();
 
