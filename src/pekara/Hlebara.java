@@ -12,8 +12,17 @@ public class Hlebara {
 		}
 	}
 	
-	public void isporuci() {
-		
+	public boolean zatrazi(List<Proizvodi> proizvod) {
+		if(!proizvod.isEmpty()) {
+			isporuci(proizvod);
+			return true;	
+		}
+		return false;
 	}
 	
+	
+	public void isporuci(List<Proizvodi> proizvod) {
+		 proizvod.remove(proizvod.size() - 1); 
+		 System.out.println("proizvod isporucen");
+	}	
 }
