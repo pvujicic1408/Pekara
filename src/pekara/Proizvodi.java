@@ -1,7 +1,7 @@
 package pekara;
 
 public enum Proizvodi {
-	HLEB(1, 50), KIFLA(2, 20); //BUREK_SA_SIROM(3, 100), BUREK_SA_MESOM(4, 120), PITA_SA_JABUKAMA(5, 70), PITA_SA_VISNJAMA(6, 90);
+	HLEB(1, 50), KIFLA(2, 20), BUREK_SA_SIROM(3, 100), BUREK_SA_MESOM(4, 120), PITA_SA_JABUKAMA(5, 70), PITA_SA_VISNJAMA(6, 90);
 
 	private final int indeksProizvoda;
 	private final int cena;
