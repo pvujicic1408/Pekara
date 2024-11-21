@@ -26,25 +26,41 @@ ukupnu vrednost dnevnog pazara.
 
 package pekara;
 
-import java.util.*;
-
 public class Main {
 
 	public static void main(String[] args) {
-		//final int brojKupaca = 1000;
-		Random rand = new Random();
-		Pogon pogon = new Pogon();
-		Prodavacica prodavacica = new Prodavacica();
-		Kupac kupac = new Kupac();
-		
-		System.out.println("Dobro jutro! Pocetak smene. Pravljenje prozivoda...");
-		
-		pogon.napravi();
-		prodavacica.usluzi();
-		
-		prodavacica.usluzi();
+		final int BROJ_KUPACA = 1000;
+		final int BROJ_PROIZVODA_KOJE_KUPUJE_SVAKI_KUPAC = 2;
 
-		
+		Pogon pogon = new Pogon();
+		Prodavacica prodavacica = new Prodavacica(pogon);
+		Kupac kupac = new Kupac();
+
+		System.out.println("Dobro jutro! Pocetak smene. Pravljenje prozivoda...");
+
+		pogon.napravi();
+		int pazar = 0;
+
+		for (int i = 0; i < BROJ_KUPACA; i++) {
+			prodavacica.usluzi(i);
+			for (int j = 0; j < BROJ_PROIZVODA_KOJE_KUPUJE_SVAKI_KUPAC; j++) {
+				boolean dostupno = false;
+
+				while (!dostupno) {
+					Proizvodi proizvod = kupac.naruci();
+					dostupno = prodavacica.pitajPogon(proizvod);
+					System.out.println("Kupac " + (i + 1) + " je naručio " + proizvod.getNaziv() 
+					+ (dostupno ? "" : ", ali on je rasprodat. Želite li nešto drugo?"));
+					if (dostupno) {
+						pogon.isporuci(proizvod);
+						pazar += proizvod.getCena();
+					}
+				}
+			}
+		}
+
+		System.out.println();
+		System.out.println("Danasnji pazar je " + pazar + " din");
 
 	}
 }
