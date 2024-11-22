@@ -15,11 +15,11 @@ public class Hlebara {
 
 	public boolean proveri(List<Proizvodi> proizvod) {
 		return !proizvod.isEmpty();
-		}
-	
+	}
 
 	public void isporuci(List<Proizvodi> proizvod) {
 		Proizvodi prodatiProizvod = proizvod.remove(proizvod.size() - 1);
-	    System.out.println("Proizvod " + prodatiProizvod.getNaziv() + " je isporučen. Ostalo je " + proizvod.size() + " komada " + prodatiProizvod.getNaziv());
+		System.out.println("Proizvod " + prodatiProizvod.getNaziv() + " je isporučen. Ostalo je " + proizvod.size()
+				+ " komada " + prodatiProizvod.getNaziv());
 	}
 }

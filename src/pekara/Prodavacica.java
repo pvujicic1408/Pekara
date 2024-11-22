@@ -4,21 +4,27 @@ import java.util.*;
 
 public class Prodavacica {
 
+	private int pazar = 0;
 	private Pogon pogon;
+	Random rand = new Random();
 
 	public Prodavacica(Pogon pogon) {
 		this.pogon = pogon;
 	}
 
-	Random rand = new Random();
-
 	public void usluzi(int i) {
-		System.out.println();
-		System.out.println("Dobar dan, kupac broj " + (i + 1) + ". Sta zelite da kupite?");
+		System.out.println("\nDobar dan, kupac broj " + (i + 1) + ". Sta zelite da kupite?");
 	}
 
 	public boolean pitajPogon(Proizvodi proizvod) {
-		boolean dostupno = false;
-		return dostupno = pogon.proveri(proizvod);
+		return pogon.proveri(proizvod);
+	}
+
+	public void naplati(Proizvodi proizvod) {
+		pazar += proizvod.getCena();
+	}
+
+	public int getPazar() {
+		return pazar;
 	}
 }

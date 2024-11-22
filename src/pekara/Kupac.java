@@ -5,9 +5,9 @@ import java.util.*;
 public class Kupac {
 	Random rand = new Random();
 
-	public Proizvodi naruci() {
-		int randomIndeks = rand.nextInt(Proizvodi.values().length) + 1;
-		Proizvodi proizvod = Proizvodi.izOpcije(randomIndeks);
+	public Proizvodi naruci(List<Proizvodi> dostupniProizvodi) {
+		Proizvodi proizvod = dostupniProizvodi.get(rand.nextInt(dostupniProizvodi.size()));
+		System.out.println("Zelim " + proizvod.getNaziv() + "!");
 		return proizvod;
 	}
 }

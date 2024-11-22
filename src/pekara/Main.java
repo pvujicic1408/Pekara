@@ -26,6 +26,8 @@ ukupnu vrednost dnevnog pazara.
 
 package pekara;
 
+import java.util.*;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -39,28 +41,35 @@ public class Main {
 		System.out.println("Dobro jutro! Pocetak smene. Pravljenje prozivoda...");
 
 		pogon.napravi();
-		int pazar = 0;
 
-		for (int i = 0; i < BROJ_KUPACA; i++) {
+		kupci: for (int i = 0; i < BROJ_KUPACA; i++) {
+			List<Proizvodi> dostupniProizvodi = new ArrayList<>(Arrays.asList(Proizvodi.values()));
 			prodavacica.usluzi(i);
 			for (int j = 0; j < BROJ_PROIZVODA_KOJE_KUPUJE_SVAKI_KUPAC; j++) {
 				boolean dostupno = false;
 
 				while (!dostupno) {
-					Proizvodi proizvod = kupac.naruci();
+					Proizvodi proizvod = kupac.naruci(dostupniProizvodi);
 					dostupno = prodavacica.pitajPogon(proizvod);
-					System.out.println("Kupac " + (i + 1) + " je naručio " + proizvod.getNaziv() 
-					+ (dostupno ? "" : ", ali on je rasprodat. Želite li nešto drugo?"));
+
 					if (dostupno) {
 						pogon.isporuci(proizvod);
-						pazar += proizvod.getCena();
+						prodavacica.naplati(proizvod);
+					} else {
+						System.out.println(Character.toUpperCase(proizvod.getNaziv().charAt(0))
+								+ proizvod.getNaziv().substring(1) + " je rasprodat! Želite li nešto drugo?");
+						dostupniProizvodi.remove(proizvod);
+					}
+
+					if (dostupniProizvodi.isEmpty()) {
+						System.out.println("\nNema vise nijednog proizvoda na stanju. Pekara je zatvorena!");
+						break kupci;
 					}
 				}
 			}
 		}
 
-		System.out.println();
-		System.out.println("Danasnji pazar je " + pazar + " din");
+		System.out.println("\nDanasnji pazar je " + prodavacica.getPazar() + " din");
 
 	}
 }
